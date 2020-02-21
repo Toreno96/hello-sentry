@@ -6,8 +6,9 @@ sentry_sdk.init(settings.environment_settings.SENTRY_SDK_DSN)
 
 
 def main():
-    division_by_zero = 1 / 0
-    print(division_by_zero)
+    count = 10
+    lst = list(range(count))
+    print(lst[count + 1])
 
 
 if __name__ == "__main__":
