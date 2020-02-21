@@ -16,6 +16,7 @@ isort==4.3.21             # via -r dev_requirements.in (line 4)
 mccabe==0.6.1             # via flake8
 pathspec==0.7.0           # via black
 pycodestyle==2.5.0        # via flake8
+pydantic==1.4             # via -r requirements.in (line 2)
 pyflakes==2.1.1           # via autoflake, flake8
 regex==2020.2.20          # via black
 sentry-sdk==0.14.1        # via -r requirements.in (line 1)
