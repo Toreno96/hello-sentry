@@ -1,1 +1,1 @@
-from .__version__ import __version__  # noqa
+from .__metadata__ import __version__  # noqa

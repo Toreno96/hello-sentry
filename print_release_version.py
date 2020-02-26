@@ -1,5 +1,5 @@
 #!/usr/bin/env python
 
-from app import settings
+from app import __metadata__
 
-print(settings.RELEASE)
+print(__metadata__.__release__)
