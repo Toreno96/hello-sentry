@@ -10,6 +10,7 @@ def main():
     count = 10
     lst = list(range(count))
     print(lst[count - 1])
+    print(1 / 0)
 
 
 if __name__ == "__main__":
