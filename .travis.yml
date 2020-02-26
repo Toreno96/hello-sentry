@@ -9,8 +9,16 @@ install:
 script:
   - ./check.sh
   - echo $TEST_VARIABLE
+  - echo $TEST_VARIABLE_2
+  - echo $TEST_GLOBAL_VARIABLE
+  - echo $TEST_GLOBAL_VARIABLE_2
   - sentry-cli releases new -p 'hello-sentry' "$(./print_release_version.py)"
   - sentry-cli releases set-commits --auto "$(./print_release_version.py)"
   - sentry-cli releases finalize "$(./print_release_version.py)"
 env:
-  - TEST_VARIABLE='foo'
+  global:
+    - TEST_GLOBAL_VARIABLE='spam'
+    - TEST_GLOBAL_VARIABLE_2='egg'
+  jobs:
+    - TEST_VARIABLE='foo'
+    - TEST_VARIABLE_2='bar'
