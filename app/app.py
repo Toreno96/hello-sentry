@@ -1,8 +1,9 @@
 import sentry_sdk
 
+import __metadata__
 import settings
 
-sentry_sdk.init(settings.environment_settings.SENTRY_SDK_DSN, release=settings.RELEASE)
+sentry_sdk.init(settings.environment_settings.SENTRY_SDK_DSN, release=__metadata__.__release__)
 
 
 def main():
