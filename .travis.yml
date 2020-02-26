@@ -8,11 +8,9 @@ install:
   - pip install -r requirements.txt
 script:
   - ./check.sh
-  - echo $SENTRY_ORG
-  - echo $SENTRY_AUTH_TOKEN
+  - echo $TEST_VARIABLE
   - sentry-cli releases new -p 'hello-sentry' "$(./print_release_version.py)"
   - sentry-cli releases set-commits --auto "$(./print_release_version.py)"
   - sentry-cli releases finalize "$(./print_release_version.py)"
 env:
-  - secure: "Ku6GnZ/ajPb/lQxo8o5WZdPHvOvTy4hM+CvUcyZNgbA1cy9yqQl+hl04DhoDy75BV3bxpmnj3DRawFh6pp+d+HkNaOflbFgwbDesQvPJgE7z6NRmi/2pSvRO3O1gvtGxRZJmrNCGiAn3BrhSv2ybJU4lkgmjw/vF1uL+igsQ8Xx//RZon/ZqB0I1jkrv2FmxmFUztLPC9YaKAXnt4wHMP0TqJEY9mPY8DVJfocor/Cg9jk9fWgHpJRX9w7CktT8tOnIoZUPULAqipLVoOsMSUKPihcyd1dOzGS0sc2sFnv/f51HVk0MZRExyYDRji2zlPIPlsE1UWL9TYmoHOC2mzbVSqr5g/r65EOca3TuvLxEiYbOlwTedifSTUszx9L7o7eEfTQCe175uzGbix9FMxMFLhhIzSc0z6jzajoWCJCsuUxKx6ZTR8FXKWFjf3KhzHXWiFVhEzXiYT2sLE96XvyNBQP5rz645qhT+dfb4rvz+z9gz8uc+yLOf81t4xFkDEiIvLg1uZQUual8GP+SX4Se+uAgnYeiEUhH7z4BKeZunJlbBAAAy9QiP9Mjz3KwBn0b06OcbK59ecDEBbb+88XSqv6rcPAxlUnat4NQQoWh3/akyq8CVjXJgHY0pAPyXdZBb5uRv3mTZ11YiTR9jEOTOyyqsgA606PZoDp/QMFA="
-  - secure: "SmCQxS/XN1uY74+Yb6srvjXOTY1Nsn7qpyd9tnXyYalPlYek0C975hZo7ccKvaL6R0m8V9FBm/sPWcJuUASMDRDrASwY3dZVO933FkCeKIEpfq44mgcQlhVtkQFl7iVrETQRp50t9SNTtTe1KhS/iROadtNMaXSOS4AT5CFQT8iboeK4b8BOS2JVHQ9elaZEGpU+ZaSzFp8/cA3rTzAagIsr7v7G93k+vUrpDyXiMIFzcC85+BH2m9fu203j1/TlexP0AVVJuQ+eb653goxhqMAotkrOTNsFXKQRKYARuO08fljaRblNrSW9JT+ZrW2EQlGRKI2XPTDzJE2dBNkU512T+mrMQflSF6hiaPxh8HFJD6DW1Q0vhe74f89FjZjLtzHXWU1a/XWjzXQv+z0EIUCsKUkzz86EWhqRgTlAji+y+3mhNqNUJkYDJYUG196Z30t0NhTZB1msyT8t5lKebuncvFar73Qzp7TkYm0JbqX4z2ewV8z+8N6DzeUe+Plokzt4ycmM1vnNinKugBDAZznYb4sT6MmiA6tkyRJWdYoSNpGtScX0WUISBA8Dhjd/1ND1HFKQwPKkoV5pAdlLgScMt97FkPVo6D7Nzt9eAibqQF+1mE1l/gxc62AHcbWEBo+TYYExbVn1gFwHJNjuirOh3MzihrLOnyTzsUXWK6g="
+  - TEST_VARIABLE='foo'
