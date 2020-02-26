@@ -26,6 +26,7 @@ jobs:
     - name: Release on Sentry.io
       run: |
         echo $SENTRY_ORG
+        echo $SENTRY_AUTH_TOKEN
         sentry-cli releases new -p 'hello-sentry' "$(./print_release_version.py)"
         sentry-cli releases set-commits --auto "$(./print_release_version.py)"
         sentry-cli releases finalize "$(./print_release_version.py)"
