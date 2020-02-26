@@ -20,5 +20,4 @@ env:
     - TEST_GLOBAL_VARIABLE='spam'
     - TEST_GLOBAL_VARIABLE_2='egg'
   jobs:
-    - TEST_VARIABLE='foo'
-    - TEST_VARIABLE_2='bar'
+    - TEST_VARIABLE='foo' TEST_VARIABLE_2='bar'
