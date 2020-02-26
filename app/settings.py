@@ -3,9 +3,7 @@ import logging
 from pydantic import BaseSettings
 
 logging.basicConfig(
-    datefmt="%F %T",
-    format="[%(asctime)s] %(levelname)s:%(module)s:%(lineno)d: %(message)s",
-    level=logging.DEBUG,
+    datefmt="%F %T", format="[%(asctime)s] %(levelname)s:%(module)s:%(lineno)d: %(message)s", level=logging.DEBUG,
 )
 
 
