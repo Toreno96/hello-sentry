@@ -1,8 +1,17 @@
 language: python
 python:
   - "3.7"
+before_install:
+  - curl -sL https://sentry.io/get-cli/ | sudo bash
 install:
   - python -m pip install --upgrade pip
   - pip install -r requirements.txt
 script:
   - ./check.sh
+  - sentry-cli releases new -p 'hello-sentry' "$(./print_release_version.py)"
+  - sentry-cli releases set-commits --auto "$(./print_release_version.py)"
+  - sentry-cli releases finalize "$(./print_release_version.py)"
+env:
+  global:
+    - secure: OOm6UfAQUcmvjfY0iPO74C9/vWRmHl1V3QL8Jwa7F3ehIb/R7Mabzb7apUnkHST367tvTAtGkkNLNwO3G7a/5RYCaUDanAzkvTw6iIVd4rt2TTVYkXqYCyfILsn8II/KVz69Ey0I0ytZtiPlOtT7JrULIpnMBBdw3Wepsi5kpArKRnCP06nGUog3uVrPBttqyJH5Iw90MdVHmMPjlgQPFqzsXu37x66UH4Mjsfrm/pKakHbvmYH8RYZrqbt8+3pdsppwHOgbPhVFfTMpBWeQi87/wHxlWtO6FTmMb+eKxKlWNg9SBAi3m6rTtNwPbihrrZ02gVTlB9iG5rLMpM1aCuh7ZXomx0ng/bs8/iw1ExVWcNBV0F9gM8fT0DPjV4v3EVNDTUN0sPzWZMREkSy+LCwBp80TRfzdSGkeL+RcR/54HuEj67j9ffLe7ja8pRtO1xpgBdZyRCcRoNHwT3FJ6+Qe+AhswfpmSCF1kvhR5nGfwv5/AvBHFgQHVf4hqNhUj2sjnFN9de0H+tnKgShx4MaPMhB4O3kWUL4AhhPj1fikBVuIKH1rTOSD6GUtNw7xU0YIJziUGwmNk+CpaDhJH4oOvWQbLFgWZ1Y8TzA5cD03/rfXw51HA0VrviNb+ZrYjwrtkdeMmjtNqzaViS7UoQvh2Qvcy7DWBm46Xe42+vo=
+    - secure: dP+2W8zYFFrpxc1ov+t/FcAE1j0aCG6rKmb18DDkkvgJ8F9uZrwF1QmhjlgK/TMGQ5LzSu33W+cvVhcCzInFgDYUJ/ORT/4LyJlDzsfPoheWhUnCwqlG0AwvhS2mNSPR1LGZ/rVApEdf6JeeZOCgTkWH/CvTH0P6j6AeAPRzWpl8I6v0AQ817XRxoTKUQQ5rfZrM15NUvBMKayQyiegRDC8MD8I1TjyJROAFqwjvT6hARtwbNedh9xYZHiOGU4dODUKXp3pDdf92zlyNcpJMH+qmqRgJ9wbFNy7u+BBZ8ezWBazD5eyNSpfBx0qL4fef1zc7GBSHmM87NSJt8oZnLBBNT6YcDhp64HjWVAZ+bT2fmRk1MX3lTRCzVAq5gjDPaaOVsLq0EvyWIWvYcMOJ0mdS+urpS4dZUUEShbi51J18vhuMx8hN7e6HKEpJS90BxhAdUNyjJwX7Am4/P2omIV3uMBLRiI7R2LNNzKpXSwQjLccFJL0A2PFLzeOmNV9XoISftXSaX+GExZx0Awv6/u5VwxS2LcU72G8yP6wZGyvsrPqN+q5DIuxYBEhd4/mwrObGaDIR11sG14MhEoAg5GOJzL2GH0F1STRgJ1PxedEESP44TfhQGkoXo38iS5RFiKu2t8TMsoSBsIJTkc1Kq0/84hAtaakT124XuGmZrnc=
