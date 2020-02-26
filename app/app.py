@@ -10,7 +10,6 @@ def main():
     count = 10
     lst = list(range(count))
     print(lst[count - 1])
-    raise ArithmeticError
 
 
 if __name__ == "__main__":
