@@ -2,7 +2,7 @@ import sentry_sdk
 
 import settings
 
-sentry_sdk.init(settings.environment_settings.SENTRY_SDK_DSN)
+sentry_sdk.init(settings.environment_settings.SENTRY_SDK_DSN, release=settings.RELEASE)
 
 
 def main():
