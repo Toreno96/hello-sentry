@@ -2,7 +2,7 @@ import logging
 
 from pydantic import BaseSettings
 
-from __version__ import __version__
+from .__version__ import __version__
 
 logging.basicConfig(
     datefmt="%F %T", format="[%(asctime)s] %(levelname)s:%(module)s:%(lineno)d: %(message)s", level=logging.DEBUG,
